@@ -1,22 +1,28 @@
 import numpy as np
 
 
-def make_grid(images, n_items_in_row=None):
+def make_grid(images, n_items_in_row=None, background_color=None):
     n_images = len(images)
     assert n_images > 0
     if n_items_in_row is None:
         n_items_in_row = n_images
+    if background_color is None:
+        background_color = 0
 
     n_rows = np.ceil(n_images / n_items_in_row)
-    image_shape = images[0].shape
+    first_not_none_image = next(image for image in images if image is not None)
+    image_shape = first_not_none_image.shape
     assert len(image_shape) in [2, 3]
     if len(image_shape) == 3:
         res_shape = (int(image_shape[0] * n_rows), int(image_shape[1] * n_items_in_row), image_shape[2])
     else:
         res_shape = (int(image_shape[0] * n_rows), int(image_shape[1] * n_items_in_row))
-    res = np.zeros(res_shape, dtype=images[0].dtype)
+    res = np.zeros(res_shape, dtype=first_not_none_image.dtype)
+    res[:, :] = background_color
 
     for ind, image in enumerate(images):
+        if image is None:
+            continue
         row = ind // n_items_in_row
         col = ind % n_items_in_row
         res[
