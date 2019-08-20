@@ -23,6 +23,6 @@ python3 setup.py install
 
 See examples/grid_example
 
-## np_draw_tools.point_to_int_tuple
+## np_draw_tools.to_int_tuple
 
 See examples/misc
