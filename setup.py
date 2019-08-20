@@ -1,8 +1,10 @@
 import setuptools
+from np_draw_tools.version import version
+
 
 setuptools.setup(
     name="np_draw_tools",
-    version="0.0.2",
+    version=version,
     author="Daiver",
     author_email="ra22341@ya.ru",
     description="",
