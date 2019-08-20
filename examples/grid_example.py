@@ -18,7 +18,12 @@ def main():
 
     grid1 = np_draw_tools.make_grid([img1, img2, img3, img3, img1, img2])
     grid2 = np_draw_tools.make_grid([img1, img2, img3, img3, img1, img2], n_items_in_row=3)
-    grid3 = np_draw_tools.make_grid([img1, img2, img3, img3, img1, img2], n_items_in_row=2)
+
+    grid3_images = [
+        cv2.cvtColor(x, cv2.COLOR_BGR2GRAY)
+        for x in [img1, img2, img3, img3, img1, img2]
+    ]
+    grid3 = np_draw_tools.make_grid(grid3_images, n_items_in_row=2)
 
     cv2.imshow("grid1", grid1)
     cv2.imshow("grid2", grid2)
