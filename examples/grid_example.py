@@ -16,7 +16,7 @@ def main():
     img3[:] = 128
     cv2.circle(img3, (128, 69), radius=10, color=(0, 0, 255), thickness=-1)
 
-    grid1 = np_draw_tools.make_grid([img1, img2, img3, img3, img1, img2])
+    grid1 = np_draw_tools.make_grid([img1, img2, img3, img3, img1, img2], margin=20, background_color=(25, 55, 200))
     grid2 = np_draw_tools.make_grid(
         [None, img2, img3, img3, None, img2],
         n_items_in_row=3,
@@ -29,9 +29,17 @@ def main():
     ]
     grid3 = np_draw_tools.make_grid(grid3_images, n_items_in_row=2, background_color=15)
 
+    grid4 = np_draw_tools.make_grid(
+        [None, img2, img3, img3, img1],
+        n_items_in_row=3,
+        background_color=(128, 85, 85),
+        margin=10
+    )
+
     cv2.imshow("grid1", grid1)
     cv2.imshow("grid2", grid2)
     cv2.imshow("grid3", grid3)
+    cv2.imshow("grid4", grid4)
     cv2.waitKey()
 
 
