@@ -1,7 +1,13 @@
+from typing import Union, List, Tuple
 import numpy as np
 
 
-def make_grid(images, n_items_in_row=None, background_color=None):
+def make_grid(
+        images: List[np.ndarray],
+        n_items_in_row: int = None,
+        background_color: Union[int, float, Tuple[int, int, int]] = None,
+        margin: int = 0
+):
     n_images = len(images)
     assert n_images > 0
     if n_items_in_row is None:
