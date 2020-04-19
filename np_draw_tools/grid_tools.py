@@ -3,7 +3,7 @@ import numpy as np
 
 
 def make_grid(
-        images: List[np.ndarray],
+        images: Union[List[np.ndarray], np.ndarray],
         n_items_in_row: int = None,
         background_color: Union[int, float, Tuple[int, int, int]] = None,
         margin: int = 0
