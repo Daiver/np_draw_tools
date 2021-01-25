@@ -7,9 +7,9 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # I took it from catalyst setup.py https://github.com/catalyst-team/catalyst/blob/master/setup.py
 def load_version():
     context = {}
-    with open(os.path.join(PROJECT_ROOT, "geom_tools", "version.py")) as f:
+    with open(os.path.join(PROJECT_ROOT, "np_draw_tools", "version.py")) as f:
         exec(f.read(), context)
-    return context["__version__"]
+    return context["version"]
 
 
 setuptools.setup(
