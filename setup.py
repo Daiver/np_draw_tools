@@ -1,5 +1,4 @@
 import setuptools
-from np_draw_tools.version import version
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
