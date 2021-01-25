@@ -1,10 +1,20 @@
 import setuptools
 from np_draw_tools.version import version
 
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+
+# I took it from catalyst setup.py https://github.com/catalyst-team/catalyst/blob/master/setup.py
+def load_version():
+    context = {}
+    with open(os.path.join(PROJECT_ROOT, "geom_tools", "version.py")) as f:
+        exec(f.read(), context)
+    return context["__version__"]
+
 
 setuptools.setup(
     name="np_draw_tools",
-    version=version,
+    version=load_version(),
     author="Daiver",
     author_email="ra22341@ya.ru",
     description="",
